@@ -1,0 +1,47 @@
+:root {
+  --hero-gradient: linear-gradient(135deg, #1a1a1a 0%, #4e2f00 100%);
+  --mango-orange: #FFA500;
+  --mango-yellow: #FFD166;
+}
+
+.hero-canvas {
+  image-rendering: high-quality;
+}
+
+/* Custom scrollbar for premium tropical feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #1a1a1a; 
+}
+::-webkit-scrollbar-thumb {
+  background: var(--mango-orange);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--mango-yellow); 
+}
+
+/* Subtle cinematic grain effect */
+.grain-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+}
+
+/* Light leak / Glow for luxury feel */
+.light-leak {
+  position: absolute;
+  top: -10%;
+  right: -10%;
+  width: 50%;
+  height: 50%;
+  background: radial-gradient(circle, rgba(255, 165, 0, 0.1) 0%, transparent 70%);
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 2;
+}
