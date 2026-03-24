@@ -17,6 +17,7 @@ export default function Hero() {
 
   // Parallax parallax light leak effect on scroll
   const leakY = useTransform(scrollYProgress, [0, 1], [0, -200]);
+  const waveY = useTransform(scrollYProgress, [0, 1], [0, -300]);
 
   return (
     <>
@@ -36,9 +37,17 @@ export default function Hero() {
           
           {/* 3. Luxury visual enhancements (Grain, Light Leaks) */}
           <div className="grain-overlay" aria-hidden="true" />
+          
+          {/* Ambient background parallax wave layer */}
+          <motion.div 
+            style={{ y: waveY }}
+            className="absolute top-[20%] right-[-10%] w-[60%] h-[60%] bg-gradient-to-bl from-[#FFA500]/10 to-transparent blur-[120px] rounded-full pointer-events-none z-0 animate-[pulse_8s_ease-in-out_infinite]"
+            aria-hidden="true"
+          />
+
           <motion.div 
             style={{ y: leakY }}
-            className="light-leak" 
+            className="light-leak animate-[pulse_6s_ease-in-out_infinite_alternate]" 
             aria-hidden="true" 
           />
           

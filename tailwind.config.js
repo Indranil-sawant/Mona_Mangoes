@@ -12,6 +12,11 @@ module.exports = {
           orange: "#FFA500",
           yellow: "#FFD166",
         }
+      },
+      keyframes: {
+        shimmer: {
+          '100%': { transform: 'translateX(100%)' },
+        }
       }
     },
   },

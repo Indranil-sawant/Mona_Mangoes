@@ -11,9 +11,9 @@ export default function Navbar() {
   const { scrollY } = useScroll();
   
   // Transition between transparent and blurred navy background based on scroll
-  const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.9]);
-  const blurValue = useTransform(scrollY, [0, 80], [0, 15]);
-  const borderOpacity = useTransform(scrollY, [0, 80], [0, 0.05]);
+  const bgOpacity = useTransform(scrollY, [0, 80], [0, 0.6]);
+  const blurValue = useTransform(scrollY, [0, 80], [0, 20]);
+  const borderOpacity = useTransform(scrollY, [0, 80], [0, 0.1]);
 
   const backgroundColor = useMotionTemplate`rgba(26, 26, 26, ${bgOpacity})`;
   const backdropFilter = useMotionTemplate`blur(${blurValue}px)`;
@@ -43,9 +43,11 @@ export default function Navbar() {
         </a>
         <button 
           onClick={openModal}
-          className={`${outfit.className} px-8 py-2.5 bg-gradient-to-r from-[#FFA500] to-[#FFD166] text-black rounded-full hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,165,0,0.2)] hover:shadow-[0_0_30px_rgba(255,165,0,0.4)] text-xs font-bold uppercase tracking-widest`}
+          className={`${outfit.className} relative overflow-hidden px-8 py-2.5 bg-gradient-to-r from-[#FFA500] to-[#FFD166] text-black rounded-full hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(255,165,0,0.2)] hover:shadow-[0_0_40px_rgba(255,165,0,0.5)] text-xs font-bold uppercase tracking-widest group`}
         >
-          Order Now
+          {/* Light Sweep Effect */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent -translate-x-full group-hover:animate-[shimmer_1.5s_infinite]" />
+          <span className="relative z-10">Order Now</span>
         </button>
       </div>
     </motion.nav>
